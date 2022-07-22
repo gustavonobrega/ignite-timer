@@ -99,7 +99,7 @@ export function CyclesContextProvider({
         interruptCurrentCycle,
       }}
     >
-      children
+      {children}
     </CyclesContext.Provider>
   )
 }
