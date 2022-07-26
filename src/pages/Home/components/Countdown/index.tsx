@@ -27,7 +27,7 @@ export function CountDown() {
         if (secondsDifference >= totalSeconds) {
           markCurrentCycleAsFinished()
           setSecondsPassed(totalSeconds)
-          clearInterval()
+          clearInterval(interval)
         } else {
           setSecondsPassed(secondsDifference)
         }
@@ -37,7 +37,13 @@ export function CountDown() {
     return () => {
       clearInterval(interval)
     }
-  }, [activeCycle, totalSeconds, activeCycleId, markCurrentCycleAsFinished])
+  }, [
+    activeCycle,
+    totalSeconds,
+    activeCycleId,
+    setSecondsPassed,
+    markCurrentCycleAsFinished,
+  ])
 
   const currentSeconds = activeCycle ? totalSeconds - amountSecondsPassed : 0
 
